@@ -1,0 +1,31 @@
+.Landingpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ant-image {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+.ant-input-search {
+  width: 700px !important;
+}
+.cityHighlight {
+  font-weight: bold;
+}
+.companyDescription {
+  color: white;
+  display: flex;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 2.6rem;
+}
+.ant-popover {
+  width: 30%;
+}
