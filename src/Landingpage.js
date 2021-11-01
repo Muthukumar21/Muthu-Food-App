@@ -13,21 +13,29 @@ const { Meta } = Card;
 const { Search } = Input;
 
 const text = <span>Recent tab</span>;
-// function content() {
 
-//   setChange == false ? (
-//     <div>
-//       <Tag closable>
-//         <a href="#">link</a>
-//       </Tag>
-//     </div>
-//   ) : (
-//     "text"
-//   );
-// }
-function Landingpage() {
-  var [mealsCard, setMealsCard] = useState(false);
+function Landingpage(props) {
+  var [MealsCard, setMealsCard] = useState(false);
   var [changeVisible, setVisibleChange] = useState(false);
+  var [filteredItemsFromMenu, setFilteredItemsFromMenu] = useState([]);
+  var [clickedTagName, setClickedTagName] = useState("");
+
+  // function handleTagsClick(nameOfTag) {
+  //   setClickedTagName(nameOfTag);
+  // }
+  debugger;
+  function filterTheFoodItem(searchKeyword) {
+    let nonVegBasedReduce = props.all_data.reduce((acc, val) => {
+      var nonvegsSreach = val.menu_available.non_veg.filter((f) => {
+        return f.food_name.includes(searchKeyword);
+      });
+      acc.push(...nonvegsSreach);
+      return acc;
+    }, []);
+
+    setFilteredItemsFromMenu(nonVegBasedReduce);
+  }
+
   function changeVisiblePopUp() {
     setVisibleChange(true);
   }
@@ -35,32 +43,42 @@ function Landingpage() {
     setVisibleChange(false);
   }
   function tagsOfPopUp() {
-    return setMealsCard == false ? (
+    return (
       <div>
-        <Tag closable>
-          <a href="https://github.com/ant-design/ant-design/issues/1862">
-            Link
-          </a>
-        </Tag>
-        <Tag closable>
-          <a href="https://github.com/ant-design/ant-design/issues/1862">
-            Link
-          </a>
-        </Tag>
+        {MealsCard == false ? (
+          <div>
+            <Tag closable>
+              <a
+                // onClick={(e) => {
+                //   setClickedTagName(e.currentTarget.innerText);
+                // }}
+                href="#"
+              >
+                Link
+              </a>
+            </Tag>
+          </div>
+        ) : (
+          <div>
+            {filteredItemsFromMenu.map((e) => (
+              <div>
+                <Card
+                  hoverable
+                  style={{ width: 240 }}
+                  cover={
+                    <img
+                      alt="example"
+                      src="https://b.zmtcdn.com/data/images/cuisines/unlabelled/8f14e45fceea167a5a36dedd4bea2543.jpg"
+                    />
+                  }
+                >
+                  <Meta title={e.food_name} description={e.price} />
+                </Card>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-    ) : (
-      <Card
-        hoverable
-        style={{ width: 240 }}
-        cover={
-          <img
-            alt="example"
-            src="https://b.zmtcdn.com/data/images/cuisines/unlabelled/8f14e45fceea167a5a36dedd4bea2543.jpg"
-          />
-        }
-      >
-        <Meta title="Europe Street beat" description="www.instagram.com" />
-      </Card>
     );
   }
   return (
@@ -89,7 +107,11 @@ function Landingpage() {
           content={tagsOfPopUp}
         >
           <Search
-            // onChange={change}
+            onChange={(e) => {
+              debugger;
+              filterTheFoodItem(e.currentTarget.value);
+              setMealsCard(true);
+            }}
             // onBlur={toHide}
             placeholder="input search text"
             allowClear
