@@ -38,9 +38,36 @@
   display: flex !important;
   width: 100%;
 } */
-.ant-card {
+/* .ant-card {
   height: 20px;
-}
+} */
 .ant-popover::-webkit-scrollbar {
   display: none;
+}
+
+/* .ant-card-cover > img {
+  height: 101%;
+} */
+
+.ant-popover-inner-content {
+  display: flex;
+  flex-direction: column;
+}
+.ant-popover {
+  width: 500px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.cardHolder {
+  display: flex;
+  flex-direction: column;
+}
+.ant-card {
+  display: flex;
+  width: 100% !important;
+  flex-direction: row;
+}
+.ant-card-cover {
+  height: 68px;
+  width: 72px;
 }

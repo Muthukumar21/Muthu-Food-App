@@ -59,7 +59,7 @@ function Landingpage(props) {
             </Tag>
           </div>
         ) : (
-          <div>
+          <div className="cardHolder">
             {filteredItemsFromMenu.map((e) => (
               <div>
                 <Card
