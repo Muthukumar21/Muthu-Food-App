@@ -3,10 +3,11 @@ import Landingpage from "./Landingpage";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import LinkPage from "./LinkPage";
 
 function App() {
   var [allRestrantMenuData, setAllRestrantMenuData] = useState([]);
-  debugger;
   useEffect(() => {
     async function getFoodData() {
       var foodData = await axios.get(
@@ -19,9 +20,20 @@ function App() {
     getFoodData();
   }, []);
   return (
-    <div className="App">
-      <Landingpage all_data={allRestrantMenuData} />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/">
+            <Landingpage all_data={allRestrantMenuData} />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path="/limkpage">
+            <LinkPage />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

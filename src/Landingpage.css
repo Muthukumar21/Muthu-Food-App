@@ -2,9 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
 }
-.ant-image {
+.companyTitle {
+  font-size: 100px;
+  font-family: -webkit-body;
+  color: #ffffff;
+  margin-bottom: -50px;
+}
+
+.bg .ant-image {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -54,9 +63,13 @@
   flex-direction: column;
 }
 .ant-popover {
+  position: absolute;
   width: 500px;
-  max-height: 400px;
+  max-height: 175px;
   overflow-y: scroll;
+  left: 50%;
+  top: 57%;
+  transform-origin: 50% -4 px;
 }
 .cardHolder {
   display: flex;

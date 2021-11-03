@@ -23,7 +23,6 @@ function Landingpage(props) {
   // function handleTagsClick(nameOfTag) {
   //   setClickedTagName(nameOfTag);
   // }
-  debugger;
   function filterTheFoodItem(searchKeyword) {
     let nonVegBasedReduce = props.all_data.reduce((acc, val) => {
       var nonvegsSreach = val.menu_available.non_veg.filter((f) => {
@@ -83,43 +82,40 @@ function Landingpage(props) {
   }
   return (
     <div className="Landingpage">
-      <div className="companyTitle">
-        <Image
-          width={200}
-          preview={false}
-          block
-          src="https://b.zmtcdn.com/web_assets/8313a97515fcb0447d2d77c276532a511583262271.png"
-        />
-      </div>
-      <div className="companyDescription">
-        <p>
-          Discover the best food & drinks in{" "}
-          <span className="cityHighlight"> Chennai</span>{" "}
-        </p>
-      </div>
-      <div className="sreachinput">
-        <Popover
-          placement="bottom"
-          title={text}
-          visible={changeVisible}
-          onVisibleChange={changeVisiblePopUp}
-          trigger="click"
-          content={tagsOfPopUp}
-        >
-          <Search
-            onChange={(e) => {
-              debugger;
-              filterTheFoodItem(e.currentTarget.value);
-              setMealsCard(true);
-            }}
+      <div className="bg-image">
+        <div className="companyTitle">
+          <b>zomato</b>
+        </div>
+        <div className="companyDescription">
+          <p>
+            Discover the best food & drinks in{" "}
+            <span className="cityHighlight"> Chennai</span>{" "}
+          </p>
+        </div>
+        <div className="sreachinput">
+          <Popover
+            placement="bottom"
+            title={text}
+            visible={changeVisible}
+            onVisibleChange={changeVisiblePopUp}
+            trigger="click"
             // onBlur={toHide}
-            placeholder="input search text"
-            allowClear
-            size="large"
-            //   onSearch={onSearch}
-            style={{ width: 500 }}
-          />
-        </Popover>
+            content={tagsOfPopUp}
+          >
+            <Search
+              onChange={(e) => {
+                filterTheFoodItem(e.currentTarget.value);
+                setMealsCard(true);
+              }}
+              // onBlur={toHide}
+              placeholder="input search text"
+              allowClear
+              size="large"
+              //   onSearch={onSearch}
+              style={{ width: 500 }}
+            />
+          </Popover>
+        </div>
       </div>
     </div>
   );
