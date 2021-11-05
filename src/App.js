@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import LinkPage from "./LinkPage";
+import CarryForwadedPage from "./CarryForwadedPage";
 
 function App() {
   var [allRestrantMenuData, setAllRestrantMenuData] = useState([]);
@@ -19,17 +19,18 @@ function App() {
 
     getFoodData();
   }, []);
+  debugger;
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/">
+          <Route path="/" exact>
             <Landingpage all_data={allRestrantMenuData} />
           </Route>
         </Switch>
         <Switch>
-          <Route path="/limkpage">
-            <LinkPage />
+          <Route path="/CarryForwadedPage">
+            <CarryForwadedPage all_data={allRestrantMenuData} />
           </Route>
         </Switch>
       </div>

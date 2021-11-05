@@ -1,0 +1,13 @@
+.NavBarPage {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.titleNavName {
+  font-size: x-large;
+  font-family: "Zen Antique script=latin rev=2";
+  font-weight: 500 !important;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
