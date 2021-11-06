@@ -1,7 +1,16 @@
-.Breadcrumb-bg {
-  margin-top: 30px;
-  margin-left: 139px;
-}
-.CardPage > .ant-card {
+.CarryForwadedPage {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Breadcrumb-bg {
+  padding: 2%;
+  margin-left: 13%;
+  width: 100vw;
+}
+.CardPage-bg {
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

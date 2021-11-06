@@ -26,7 +26,7 @@ function Landingpage(props) {
   function filterTheFoodItem(searchKeyword) {
     let nonVegBasedReduce = props.all_data.reduce((acc, val) => {
       var nonvegsSreach = val.menu_available.non_veg.filter((f) => {
-        return f.food_name.includes(searchKeyword);
+        return f.food_name.toUpperCase().includes(searchKeyword.toUpperCase());
       });
       acc.push(...nonvegsSreach);
       return acc;

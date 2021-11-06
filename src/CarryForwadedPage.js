@@ -15,7 +15,11 @@ function CarryForwadedPage(props) {
         <BreadcrumbPage />
       </div>
       <div className="CardPage-bg">
-        <CardPage />
+        {props.all_data.map((e) => (
+          <div>
+            <CardPage all_data={e} />
+          </div>
+        ))}
       </div>
     </div>
   );

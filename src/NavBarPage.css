@@ -11,3 +11,89 @@
   align-items: center;
   margin-top: 20px;
 }
+.Landingpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+}
+.companyTitle {
+  font-size: 100px;
+  font-family: -webkit-body;
+  color: #ffffff;
+  margin-bottom: -50px;
+}
+
+.bg .ant-image {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+.ant-input-search {
+  width: 700px !important;
+}
+.cityHighlight {
+  font-weight: bold;
+}
+.companyDescription {
+  color: white;
+  display: flex;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 2.6rem;
+}
+/* .ant-popover {
+  width: 30%;
+  max-height: 200px;
+  overflow-y: scroll;
+  left: 100%;
+  top: 100%;
+  transform-origin: 50% -4 px;
+}
+.ant-card {
+  display: flex !important;
+  width: 100%;
+} */
+/* .ant-card {
+  height: 20px;
+} */
+.ant-popover::-webkit-scrollbar {
+  display: none;
+}
+
+/* .ant-card-cover > img {
+  height: 101%;
+} */
+
+.ant-popover-inner-content {
+  display: flex;
+  flex-direction: column;
+}
+.ant-popover {
+  position: absolute;
+  width: 500px;
+  max-height: 175px;
+  overflow-y: scroll;
+  left: 50%;
+  top: 57%;
+  transform-origin: 50% -4 px;
+}
+.cardHolder {
+  display: flex;
+  flex-direction: column;
+}
+.navCard .ant-card {
+  display: flex;
+  width: 100% !important;
+  flex-direction: row;
+}
+.navCard .ant-card-cover {
+  height: 68px;
+  width: 72px;
+}

@@ -75,7 +75,7 @@ function NavBarPage(props) {
         ) : (
           <div className="cardHolder">
             {filteredItemsFromMenu.map((e) => (
-              <div>
+              <div className="navCard">
                 <Card
                   hoverable
                   style={{ width: 240 }}
