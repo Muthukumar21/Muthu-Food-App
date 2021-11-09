@@ -3,6 +3,7 @@ import BreadcrumbPage from "./BreadcrumbPage";
 import NavBarPage from "./NavBarPage";
 import "./CarryForwadedPage.css";
 import CardPage from "./CardPage";
+import FillterSection from "./FillterSection";
 
 function CarryForwadedPage(props) {
   return (
@@ -14,12 +15,12 @@ function CarryForwadedPage(props) {
       <div className="Breadcrumb-bg">
         <BreadcrumbPage />
       </div>
+      <div className="filterAndTabs">
+        <FillterSection />
+      </div>
+      <hr />
       <div className="CardPage-bg">
-        {props.all_data.map((e) => (
-          <div>
-            <CardPage all_data={e} />
-          </div>
-        ))}
+        <CardPage all_data={props.all_data} />
       </div>
     </div>
   );

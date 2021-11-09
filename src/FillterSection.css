@@ -1,0 +1,39 @@
+.FillterSection {
+  display: flex;
+  flex-direction: column;
+}
+.FillterSection1 {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 140px;
+  gap: 10px;
+}
+.FillterSection2 {
+  background-color: #c8208f;
+  height: 5px;
+  margin-top: 10px;
+  margin-left: 134px;
+  margin-right: 60px;
+  margin-bottom: 50px;
+}
+.filterPopover {
+  display: flex;
+}
+.filterTags {
+  gap: 10px;
+  display: flex;
+}
+.filterPopover > button {
+  width: 200px;
+}
+.filterTags .ant-tag {
+  width: 200px;
+  align-items: center;
+  display: flex;
+}
+.filterTags .ant-tag .anticon {
+  display: flex;
+  justify-content: end;
+  align-content: end;
+  width: 100vw;
+}

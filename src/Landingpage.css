@@ -2,10 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  background-image: url(https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png);
+  background-repeat: no-repeat;
   height: 100vh;
-  background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+  background-size: cover;
+  width: 100vw;
 }
+
 .companyTitle {
   font-size: 90px;
   font-family: -webkit-body;
@@ -23,7 +26,7 @@
   width: 100vw;
 }
 .ant-input-search {
-  width: 70% !important;
+  width: 50% !important;
 }
 .cityHighlight {
   font-weight: bold;
@@ -35,28 +38,10 @@
   text-align: center;
   font-size: 1.9rem;
 }
-/* .ant-popover {
-  width: 30%;
-  max-height: 200px;
-  overflow-y: scroll;
-  left: 100%;
-  top: 100%;
-  transform-origin: 50% -4 px;
-}
-.ant-card {
-  display: flex !important;
-  width: 100%;
-} */
-/* .ant-card {
-  height: 20px;
-} */
+
 .ant-popover::-webkit-scrollbar {
   display: none;
 }
-
-/* .ant-card-cover > img {
-  height: 101%;
-} */
 
 .ant-popover-inner-content {
   display: flex;

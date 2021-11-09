@@ -1,13 +1,12 @@
 import "./Landingpage.css";
 import "antd/dist/antd.css";
 import { Input, Space } from "antd";
-import { Image } from "antd";
 import { Popover } from "antd";
 import { Tag } from "antd";
-import { AudioOutlined } from "@ant-design/icons";
-import Title from "antd/lib/skeleton/Title";
+import imagesFoods from "./imagebackend";
 import { useState } from "react";
 import { Card } from "antd";
+import { useHistory } from "react-router-dom";
 
 const { Meta } = Card;
 const { Search } = Input;
@@ -15,6 +14,7 @@ const { Search } = Input;
 const text = <span>Recent tab</span>;
 
 function Landingpage(props) {
+  let history = useHistory();
   var [MealsCard, setMealsCard] = useState(false);
   var [changeVisible, setVisibleChange] = useState(false);
   var [filteredItemsFromMenu, setFilteredItemsFromMenu] = useState([]);
@@ -32,9 +32,34 @@ function Landingpage(props) {
       return acc;
     }, []);
 
-    setFilteredItemsFromMenu(nonVegBasedReduce);
+    let objOfFoodData = nonVegBasedReduce[0].food_name
+      .split(" ")
+      .map((e) => {
+        if (e.toUpperCase().indexOf(searchKeyword.toUpperCase()) != -1)
+          return e;
+      })
+      .filter((o) => {
+        return o != undefined;
+      })[0];
+    let unshiftObj = {
+      food_name: objOfFoodData,
+      votes: "100",
+      price: "200",
+      category: "Category",
+    };
+    nonVegBasedReduce.unshift(unshiftObj);
+    nonVegBasedReduce.forEach((a) => {
+      a.imageOfBackendData = imagesFoods[Math.floor(Math.random() * 13)];
+    });
+    console.log(setFilteredItemsFromMenu(nonVegBasedReduce));
   }
 
+  function handleclickable(uniqueCardData) {
+    history.push({
+      pathname: "/CarryForwadedPage",
+      state: uniqueCardData.food_name,
+    });
+  }
   function changeVisiblePopUp() {
     setVisibleChange(true);
   }
@@ -60,18 +85,26 @@ function Landingpage(props) {
         ) : (
           <div className="cardHolder">
             {filteredItemsFromMenu.map((e) => (
-              <div className="card">
+              <div
+                className="card"
+                onClick={() => {
+                  handleclickable(e);
+                }}
+              >
                 <Card
                   hoverable
                   style={{ width: 240 }}
                   cover={
                     <img
-                      alt="example"
+                      alt="not found"
                       src="https://b.zmtcdn.com/data/images/cuisines/unlabelled/8f14e45fceea167a5a36dedd4bea2543.jpg"
                     />
                   }
                 >
-                  <Meta title={e.food_name} description={e.price} />
+                  <Meta
+                    title={e.food_name}
+                    description={e.category ? e.category : e.price}
+                  />
                 </Card>
               </div>
             ))}

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CarryForwadedPage from "./CarryForwadedPage";
+import RestarantView from "./RestarantView";
 
 function App() {
   var [allRestrantMenuData, setAllRestrantMenuData] = useState([]);
@@ -13,7 +14,7 @@ function App() {
       var foodData = await axios.get(
         "https://rcz-backend-arvinth.herokuapp.com/api/allResorts"
       );
-      console.log(foodData.data);
+
       setAllRestrantMenuData(foodData.data);
     }
 
@@ -31,6 +32,11 @@ function App() {
         <Switch>
           <Route path="/CarryForwadedPage">
             <CarryForwadedPage all_data={allRestrantMenuData} />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path="/resort">
+            <RestarantView />
           </Route>
         </Switch>
       </div>

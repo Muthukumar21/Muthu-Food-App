@@ -1,16 +1,9 @@
 .CarryForwadedPage {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .Breadcrumb-bg {
-  padding: 2%;
-  margin-left: 13%;
-  width: 100vw;
-}
-.CardPage-bg {
-  display: flex;
-  width: 70%;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  padding: 1%;
+  margin-left: 4%;
+  width: 37vw;
 }

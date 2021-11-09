@@ -1,0 +1,71 @@
+.resortPage {
+  display: flex;
+  flex-direction: column;
+}
+.resortPageBreadcrumbpage {
+  padding: 1%;
+  margin-left: 4%;
+  width: 37vw;
+}
+
+.resortPageGridCss {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: end;
+  align-content: center;
+  margin: 20px 100px 0px 150px;
+}
+.resortPageDivider {
+  background-color: #c8208f;
+  height: 5px;
+  margin-top: 10px;
+  margin-left: 134px;
+  margin-right: 60px;
+  margin-bottom: 50px;
+}
+
+.resortPageListOfitemsInARestort {
+  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.resortPageListOfitemsInARestort .ant-card:hover {
+  box-shadow: 20px 20px 5px #c8208f !important;
+}
+.resortPageListOfitemsInARestort .ant-card {
+  display: flex;
+  width: 80% !important;
+  flex-direction: row;
+  margin: 0 150px;
+}
+.resortPageListOfitemsInARestort .ant-card-cover {
+  height: 250px;
+  width: 250px;
+  padding: 50px;
+  margin: 0px 50px;
+}
+.resortPageListOfitemsInARestort .ant-card-body {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.resortPageRestarantDetails {
+  display: grid;
+  line-height: 1.2;
+  padding: 0px;
+  font-family: Okra, Helvetica, sans-serif;
+  justify-content: start;
+  justify-items: start;
+  font-family: Okra, Helvetica, sans-serif;
+}
+.resortPageRate {
+  display: grid;
+  justify-content: end;
+  justify-items: end;
+  align-items: end;
+}

@@ -1,0 +1,54 @@
+.CardPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  gap: 100px;
+  margin-left: 120px;
+  padding: 20px;
+}
+.CardPageRate {
+  display: flex;
+  justify-content: space-between;
+}
+.rowcard .ant-card:hover {
+  box-shadow: 15px 20px 5px #9a9797;
+}
+
+.nameOfTheRestarant {
+  display: flex;
+  margin-left: 150px;
+  margin-bottom: 50px;
+}
+.deliveryMinutes {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  bottom: 170px;
+}
+.CardPageMeta .ant-card-meta-detail {
+  display: flex;
+  justify-content: space-between;
+}
+.slider1Image {
+  display: grid !important;
+  padding: 0px;
+  grid-template-columns: 0.01fr 1fr !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-content: center !important;
+}
+.slider1Image img {
+  width: 25px !important;
+  height: 25px !important;
+}
+.slider2Image {
+  display: grid !important;
+  grid-template-columns: 1fr 0.01fr !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-content: center !important;
+}
+.slider2Image img {
+  width: 50px !important;
+  height: 25px !important;
+}
