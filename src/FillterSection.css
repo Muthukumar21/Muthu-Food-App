@@ -25,6 +25,8 @@
 }
 .filterPopover > button {
   width: 200px;
+  background-color: #c8208f;
+  color: white;
 }
 .filterTags .ant-tag {
   width: 200px;

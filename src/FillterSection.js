@@ -21,9 +21,7 @@ function FillterSection(props) {
             content={content}
             trigger="click"
           >
-            <Button type="primary" size="large">
-              Fillter
-            </Button>
+            <Button size="large">Fillter</Button>
           </Popover>
         </div>
         <div className="filterTags">

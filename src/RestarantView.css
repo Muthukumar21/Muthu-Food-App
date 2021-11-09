@@ -31,7 +31,7 @@
   grid-template-columns: 1fr;
 }
 .resortPageListOfitemsInARestort .ant-card:hover {
-  box-shadow: 20px 20px 5px #c8208f !important;
+  box-shadow: 20px 20px 15px #c8208f !important;
 }
 .resortPageListOfitemsInARestort .ant-card {
   display: flex;
