@@ -11,6 +11,8 @@ import { Card } from "antd";
 import { Avatar } from "antd";
 import { Menu, Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import imagesFoods from "./imagebackend";
+import { useHistory } from "react-router-dom";
 
 const { Meta } = Card;
 const { Search } = Input;
@@ -29,6 +31,7 @@ const menu = (
 const text = <span>Recent tab</span>;
 
 function NavBarPage(props) {
+  let history = useHistory();
   var [MealsCard, setMealsCard] = useState(false);
   var [changeVisible, setVisibleChange] = useState(false);
   var [filteredItemsFromMenu, setFilteredItemsFromMenu] = useState([]);
@@ -38,18 +41,44 @@ function NavBarPage(props) {
   //   setClickedTagName(nameOfTag);
   // }
   function filterTheFoodItem(searchKeyword) {
-    debugger;
     let nonVegBasedReduce = props.all_data.reduce((acc, val) => {
       var nonvegsSreach = val.menu_available.non_veg.filter((f) => {
-        return f.food_name.includes(searchKeyword);
+        return f.food_name.toUpperCase().includes(searchKeyword.toUpperCase());
       });
       acc.push(...nonvegsSreach);
       return acc;
     }, []);
 
+    let objOfFoodData = nonVegBasedReduce[0].food_name
+      .split(" ")
+      .map((e) => {
+        if (e.toUpperCase().indexOf(searchKeyword.toUpperCase()) != -1)
+          return e;
+      })
+      .filter((o) => {
+        return o != undefined;
+      })[0];
+    let unshiftObj = {
+      food_name: objOfFoodData,
+      votes: "100",
+      price: "200",
+      category: "Category",
+    };
+    nonVegBasedReduce.unshift(unshiftObj);
+    nonVegBasedReduce.forEach((a) => {
+      a.imageOfBackendData = imagesFoods[Math.floor(Math.random() * 19)];
+    });
+
     setFilteredItemsFromMenu(nonVegBasedReduce);
+    console.log(setFilteredItemsFromMenu(nonVegBasedReduce));
   }
 
+  function handleclickable(uniqueCardData) {
+    history.push({
+      pathname: "/CarryForwadedPage",
+      state: uniqueCardData.food_name,
+    });
+  }
   function changeVisiblePopUp() {
     setVisibleChange(true);
   }
@@ -75,18 +104,21 @@ function NavBarPage(props) {
         ) : (
           <div className="cardHolder">
             {filteredItemsFromMenu.map((e) => (
-              <div className="navCard">
+              <div
+                className="card"
+                onClick={() => {
+                  handleclickable(e);
+                }}
+              >
                 <Card
                   hoverable
                   style={{ width: 240 }}
-                  cover={
-                    <img
-                      alt="example"
-                      src="https://b.zmtcdn.com/data/images/cuisines/unlabelled/8f14e45fceea167a5a36dedd4bea2543.jpg"
-                    />
-                  }
+                  cover={<img alt="not found" src={e.imageOfBackendData} />}
                 >
-                  <Meta title={e.food_name} description={e.price} />
+                  <Meta
+                    title={e.food_name}
+                    description={e.category ? e.category : e.price}
+                  />
                 </Card>
               </div>
             ))}
@@ -107,7 +139,7 @@ function NavBarPage(props) {
           visible={changeVisible}
           onVisibleChange={changeVisiblePopUp}
           trigger="click"
-          // onBlur={toHide}
+          onBlur={toHide}
           content={tagsOfPopUp}
         >
           <Search
@@ -141,6 +173,7 @@ function NavBarPage(props) {
           </a>
         </Dropdown>
       </div>
+      ;
     </div>
   );
 }

@@ -7,10 +7,10 @@ function BreadcrumbPage(props) {
       <Breadcrumb>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>
-          <a href="">Application Center</a>
+          <a href="">CarryForwadedPage</a>
         </Breadcrumb.Item>
         <Breadcrumb.Item>
-          <a href="">Application List</a>
+          <a href="">RestarantView</a>
         </Breadcrumb.Item>
         <Breadcrumb.Item>An Application</Breadcrumb.Item>
       </Breadcrumb>

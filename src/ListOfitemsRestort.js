@@ -1,10 +1,18 @@
-import React from "react";
-import { Card, Rate } from "antd";
+import React, { useState, useEffect } from "react";
+import { Badge, Card, Button, Carousel, Rate, Spin, Space } from "antd";
+
 import "./ListOfitemsRestort.css";
+import imagesFoods from "./imagebackend";
 
 const { Meta } = Card;
 function ListOfitemsRestort(props) {
+  const [imageTimer, setimageTimer] = useState(false);
   console.log(props);
+  useEffect(() => {
+    setTimeout(() => {
+      setimageTimer(true);
+    }, 3000);
+  }, []);
   return (
     <div>
       <div className="cardHolderInfo">
@@ -12,10 +20,18 @@ function ListOfitemsRestort(props) {
           hoverable
           style={{ width: 240 }}
           cover={
-            <img
-              alt="example"
-              src="https://b.zmtcdn.com/data/images/cuisines/unlabelled/8f14e45fceea167a5a36dedd4bea2543.jpg"
-            />
+            <div>
+              {imageTimer ? (
+                <img
+                  alt="example"
+                  src={imagesFoods[Math.floor(Math.random() * 19)]}
+                />
+              ) : (
+                <Space size="middle">
+                  <Spin size="large" />
+                </Space>
+              )}
+            </div>
           }
         >
           <Meta
@@ -29,6 +45,7 @@ function ListOfitemsRestort(props) {
             />
             <Meta description={props.all_data.votes + " votes"} />
           </div>
+          <Button danger>ADD</Button>
         </Card>
         ,
       </div>

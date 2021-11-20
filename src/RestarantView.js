@@ -4,7 +4,7 @@ import ListOfitemsRestort from "./ListOfitemsRestort";
 import NavBarPage from "./NavBarPage";
 import ResortPageHeaderImageFolder from "./ResortPageHeaderImageFolder";
 import "./RestarantView.css";
-import { Rate, Badge, Divider } from "antd";
+import { Rate, Badge } from "antd";
 
 import { useHistory } from "react-router-dom";
 

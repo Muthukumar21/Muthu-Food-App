@@ -49,9 +49,10 @@ function Landingpage(props) {
     };
     nonVegBasedReduce.unshift(unshiftObj);
     nonVegBasedReduce.forEach((a) => {
-      a.imageOfBackendData = imagesFoods[Math.floor(Math.random() * 13)];
+      a.imageOfBackendData = imagesFoods[Math.floor(Math.random() * 19)];
     });
-    console.log(setFilteredItemsFromMenu(nonVegBasedReduce));
+
+    setFilteredItemsFromMenu(nonVegBasedReduce);
   }
 
   function handleclickable(uniqueCardData) {
@@ -94,12 +95,7 @@ function Landingpage(props) {
                 <Card
                   hoverable
                   style={{ width: 240 }}
-                  cover={
-                    <img
-                      alt="not found"
-                      src="https://b.zmtcdn.com/data/images/cuisines/unlabelled/8f14e45fceea167a5a36dedd4bea2543.jpg"
-                    />
-                  }
+                  cover={<img alt="not found" src={e.imageOfBackendData} />}
                 >
                   <Meta
                     title={e.food_name}
