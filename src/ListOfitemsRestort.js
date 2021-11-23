@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Badge, Card, Button, Carousel, Rate, Spin, Space } from "antd";
+import { Badge, Card, Carousel, Rate, Spin, Space, Modal, Button } from "antd";
 
 import "./ListOfitemsRestort.css";
 import imagesFoods from "./imagebackend";
 
 const { Meta } = Card;
 function ListOfitemsRestort(props) {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const [imageTimer, setimageTimer] = useState(false);
   console.log(props);
   useEffect(() => {
     setTimeout(() => {
       setimageTimer(true);
-    }, 3000);
+    }, 2000);
   }, []);
   return (
     <div>
@@ -45,7 +59,19 @@ function ListOfitemsRestort(props) {
             />
             <Meta description={props.all_data.votes + " votes"} />
           </div>
-          <Button danger>ADD</Button>
+          <Button type="danger" onClick={showModal}>
+            Add
+          </Button>
+          <Modal
+            title="Basic Modal"
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <p>Some ...</p>
+            <p>Some ...</p>
+            <p>Some ...</p>
+          </Modal>{" "}
         </Card>
         ,
       </div>

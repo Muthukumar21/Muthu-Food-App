@@ -35,6 +35,7 @@
 }
 .resortPageListOfitemsInARestort .ant-card {
   display: flex;
+  background-color: #d3d3d37a;
   width: 80% !important;
   flex-direction: row;
   margin: 0 150px;
@@ -47,6 +48,7 @@
 }
 .resortPageListOfitemsInARestort .ant-card-body {
   display: grid;
+  grid-template-columns: 0.1fr 1fr 1fr 1fr;
   gap: 20px;
   justify-items: center;
   align-items: center;

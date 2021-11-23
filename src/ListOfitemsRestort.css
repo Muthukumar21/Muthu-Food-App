@@ -1,6 +1,9 @@
 .cardHolderInfo {
   display: flex;
 }
+.cardHolderInfo .ant-card-cover img {
+  height: 150px;
+}
 .rateaVotes {
   display: flex;
   flex-direction: row;
