@@ -6,6 +6,8 @@ import imagesFoods from "./imagebackend";
 
 const { Meta } = Card;
 function ListOfitemsRestort(props) {
+  debugger;
+  console.log(props);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -21,7 +23,6 @@ function ListOfitemsRestort(props) {
   };
 
   const [imageTimer, setimageTimer] = useState(false);
-  console.log(props);
   useEffect(() => {
     setTimeout(() => {
       setimageTimer(true);
@@ -50,7 +51,7 @@ function ListOfitemsRestort(props) {
         >
           <Meta
             title={props.all_data.food_name}
-            description={"price : " + props.all_data.price}
+            description={"price : " + "₹" + props.all_data.price}
           />
           <div className="rateaVotes">
             <Rate
