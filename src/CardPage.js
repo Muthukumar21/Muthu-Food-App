@@ -20,11 +20,13 @@ function CardPage(props) {
   let historycarry = useHistory();
   const [hotelBasedOnkeyWord, setHotelBasedOnkeyWord] = useState([]);
   useEffect(() => {
-    let backendData = props.all_data;
+  
+    let backendData =  props.all_data;
+    debugger
     let filteredItem = backendData
       .map((o) => {
         let sreachAllData = o.menu_available.non_veg.filter((e) => {
-          return e.food_name.includes(historycarry.location.state);
+          return e.food_name.includes(props.update_state == false ? historycarry.location.state : props.update_state);
         });
         if (sreachAllData.length > 0) {
           return { ...o };
@@ -39,7 +41,7 @@ function CardPage(props) {
     setTimeout(() => {
       setHotelBasedOnkeyWord(filteredItem);
     }, 1000);
-  }, []);
+  }, [props.update_state]);
   function handleCarryClick(clickedObj) {
     history.push({
       pathname: "/resort",

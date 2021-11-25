@@ -74,10 +74,13 @@ function NavBarPage(props) {
   }
 
   function handleclickable(uniqueCardData) {
+    debugger
+    props.isUpdateNeeded(true);
     history.push({
       pathname: "/CarryForwadedPage",
       state: uniqueCardData.food_name,
     });
+    props.whatupdate(uniqueCardData.food_name)
   }
   function changeVisiblePopUp() {
     setVisibleChange(true);
@@ -139,7 +142,7 @@ function NavBarPage(props) {
           visible={changeVisible}
           onVisibleChange={changeVisiblePopUp}
           trigger="click"
-          onBlur={toHide}
+          // onBlur={toHide}
           content={tagsOfPopUp}
         >
           <Search
