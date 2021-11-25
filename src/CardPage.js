@@ -20,9 +20,8 @@ function CardPage(props) {
   let historycarry = useHistory();
   const [hotelBasedOnkeyWord, setHotelBasedOnkeyWord] = useState([]);
   useEffect(() => {
-  
+    setHotelBasedOnkeyWord([]);
     let backendData =  props.all_data;
-    debugger
     let filteredItem = backendData
       .map((o) => {
         let sreachAllData = o.menu_available.non_veg.filter((e) => {
