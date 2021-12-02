@@ -48,8 +48,9 @@
 }
 .resortPageListOfitemsInARestort .ant-card-body {
   display: grid;
-  grid-template-columns: 0.1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+  width: 50%;
   justify-items: center;
   align-items: center;
   justify-content: center;
@@ -70,4 +71,12 @@
   justify-content: end;
   justify-items: end;
   align-items: end;
+}
+.resortPageListOfitemsInARestort .ant-card-meta {
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.rateaVotes {
+  grid-row-start: 2;
+  grid-row-end: 3;
 }

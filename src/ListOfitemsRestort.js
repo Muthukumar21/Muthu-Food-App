@@ -1,26 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Badge, Card, Carousel, Rate, Spin, Space, Modal, Button } from "antd";
+import { Card, Rate, Spin, Space, Button } from "antd";
 
 import "./ListOfitemsRestort.css";
 import imagesFoods from "./imagebackend";
 
 const { Meta } = Card;
 function ListOfitemsRestort(props) {
-  debugger;
-  console.log(props);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+  const [count, setCount] = useState(1);
 
   const [imageTimer, setimageTimer] = useState(false);
   useEffect(() => {
@@ -60,19 +46,26 @@ function ListOfitemsRestort(props) {
             />
             <Meta description={props.all_data.votes + " votes"} />
           </div>
-          <Button type="danger" onClick={showModal}>
-            Add
-          </Button>
-          <Modal
-            title="Basic Modal"
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
-          >
-            <p>Some ...</p>
-            <p>Some ...</p>
-            <p>Some ...</p>
-          </Modal>{" "}
+          <div className="cart_button">
+            <Button type="danger">Add</Button>
+            <Button
+              className="cart_button_plus"
+              type="danger"
+              onClick={() => setCount(count + 1)}
+            >
+              +
+            </Button>
+            <Button type="danger" className="cart_button_number">
+              {count < 1 ? 1 : count}
+            </Button>
+            <Button
+              type="danger"
+              className="cart_button_minus"
+              onClick={() => setCount(count - 1)}
+            >
+              -
+            </Button>
+          </div>
         </Card>
         ,
       </div>
