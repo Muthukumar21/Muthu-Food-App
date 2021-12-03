@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BreadcrumbPage from "./BreadcrumbPage";
 import ListOfitemsRestort from "./ListOfitemsRestort";
 import NavBarPage from "./NavBarPage";
@@ -9,6 +9,8 @@ import { Rate, Badge } from "antd";
 import { useHistory } from "react-router-dom";
 
 function RestarantView(props) {
+  const [updateState, setUpdateState] = useState(false);
+  const [whatKeywordToUpdate, setWhatKeywordToUpdate] = useState("");
   let history = useHistory();
   debugger;
   let getDataOfHotel = history.location.state;
@@ -16,7 +18,11 @@ function RestarantView(props) {
   return (
     <div className="resortPage">
       <div className="resortPageNavPage">
-        <NavBarPage />
+        <NavBarPage
+          all_data={props.all_data}
+          isUpdateNeeded={setUpdateState}
+          whatupdate={setWhatKeywordToUpdate}
+        />
       </div>
       <div className="resortPageBreadcrumbpage">
         <BreadcrumbPage />

@@ -7,7 +7,7 @@ import imagesFoods from "./imagebackend";
 const { Meta } = Card;
 function ListOfitemsRestort(props) {
   const [count, setCount] = useState(1);
-
+  const [addbtn, setAddbtn] = useState(false);
   const [imageTimer, setimageTimer] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -47,24 +47,39 @@ function ListOfitemsRestort(props) {
             <Meta description={props.all_data.votes + " votes"} />
           </div>
           <div className="cart_button">
-            <Button type="danger">Add</Button>
-            <Button
-              className="cart_button_plus"
-              type="danger"
-              onClick={() => setCount(count + 1)}
-            >
-              +
-            </Button>
-            <Button type="danger" className="cart_button_number">
-              {count < 1 ? 1 : count}
-            </Button>
-            <Button
-              type="danger"
-              className="cart_button_minus"
-              onClick={() => setCount(count - 1)}
-            >
-              -
-            </Button>
+            {addbtn == false ? (
+              <>
+                {" "}
+                <Button
+                  type="danger"
+                  onClick={() => {
+                    setAddbtn(true);
+                  }}
+                >
+                  Add
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  className="cart_button_plus"
+                  type="danger"
+                  onClick={() => setCount(count + 1)}
+                >
+                  +
+                </Button>
+                <Button type="danger" className="cart_button_number">
+                  {count < 1 ? 1 : count}
+                </Button>
+                <Button
+                  type="danger"
+                  className="cart_button_minus"
+                  onClick={() => setCount(count - 1)}
+                >
+                  -
+                </Button>
+              </>
+            )}
           </div>
         </Card>
         ,

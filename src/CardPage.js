@@ -21,11 +21,15 @@ function CardPage(props) {
   const [hotelBasedOnkeyWord, setHotelBasedOnkeyWord] = useState([]);
   useEffect(() => {
     setHotelBasedOnkeyWord([]);
-    let backendData =  props.all_data;
+    let backendData = props.all_data;
     let filteredItem = backendData
       .map((o) => {
         let sreachAllData = o.menu_available.non_veg.filter((e) => {
-          return e.food_name.includes(props.update_state == false ? historycarry.location.state : props.update_state);
+          return e.food_name.includes(
+            props.update_state == false
+              ? historycarry.location.state
+              : props.update_state
+          );
         });
         if (sreachAllData.length > 0) {
           return { ...o };

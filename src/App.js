@@ -36,7 +36,7 @@ function App() {
         </Switch>
         <Switch>
           <Route path="/resort">
-            <RestarantView />
+            <RestarantView all_data={allRestrantMenuData} />
           </Route>
         </Switch>
       </div>
