@@ -82,7 +82,6 @@ function ListOfitemsRestort(props) {
             )}
           </div>
         </Card>
-        ,
       </div>
     </div>
   );

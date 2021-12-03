@@ -113,7 +113,7 @@ function Landingpage(props) {
     <div className="Landingpage">
       <div className="bg-image">
         <div className="companyTitle">
-          <b>zomato</b>
+          <b>Make My Lunch</b>
         </div>
         <div className="companyDescription">
           <p>

@@ -74,13 +74,13 @@ function NavBarPage(props) {
   }
 
   function handleclickable(uniqueCardData) {
-    debugger
+    debugger;
     props.isUpdateNeeded(true);
     history.push({
       pathname: "/CarryForwadedPage",
       state: uniqueCardData.food_name,
     });
-    props.whatupdate(uniqueCardData.food_name)
+    props.whatupdate(uniqueCardData.food_name);
   }
   function changeVisiblePopUp() {
     setVisibleChange(true);
@@ -133,7 +133,7 @@ function NavBarPage(props) {
   return (
     <div className="NavBarPage">
       <div className="titleNavName">
-        <h3>ZOMATO</h3>
+        <h3>Make My Lunch</h3>
       </div>
       <div className="sreachinput">
         <Popover
